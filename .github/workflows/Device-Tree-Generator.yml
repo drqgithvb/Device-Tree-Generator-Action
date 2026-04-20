@@ -71,7 +71,7 @@ jobs:
         
     - name: Generating Device tree
       run: |
-        sudo python3 -m twrpdtgen ./${{ env.RECOVERY_TYPE }}.img 
+        sudo $(which python) -m twrpdtgen ./${{ env.RECOVERY_TYPE }}.img 
         
     - name: Set Build Date 
       run: |
