@@ -98,6 +98,11 @@ jobs:
         name: ${{ env.DEVICE_ID }} ${{ env.DEVICE_IDD }} device tree // ${{ env.BUILD_DATE }}
         tag_name: ${{ github.run_id }}
         body: |
+      
+    - name: Fix File Permissions
+      run: |
+          # 将当前目录(.)下的所有文件所有权，递归(-R)改回给当前用户($USER)
+          sudo chown -R $USER:$USER .
 
     - name: Push to GitHub
       if: github.event.inputs.PUSH_GITHUB == 'true'
