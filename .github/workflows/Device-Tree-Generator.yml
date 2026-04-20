@@ -49,7 +49,7 @@ jobs:
 
     - name: Getting tools ready 
       run: |
-        sudo $(which python) install twrpdtgen 
+        sudo $(which python) -m pip install twrpdtgen 
         sudo apt-get install cpio
     
     - name: Downloading .img file
