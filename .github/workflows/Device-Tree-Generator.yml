@@ -6,7 +6,7 @@ on:
       DEVICE_IMG:
         description: '(.img) file link'
         required: true
-        default: 'https://dumps.tadiphone.dev/dumps/samsung/a05s/-/raw/a05snsdxx-user-14-UP1A.231005.007-A057FXXS5CXH9-release-keys/recovery.img'
+        default: 'https://github.com/drqgithvb/Device-Tree-Generator-Action/releases/download/test/boot.img'
       DEVICE_BRANCH:
         description: 'your device branch name (Optional)'
         required: true
@@ -71,7 +71,7 @@ jobs:
         
     - name: Generating Device tree
       run: |
-        python3 -m twrpdtgen ./${{ env.RECOVERY_TYPE }}.img 
+        sudo python3 -m twrpdtgen ./${{ env.RECOVERY_TYPE }}.img 
         
     - name: Set Build Date 
       run: |
@@ -102,8 +102,8 @@ jobs:
     - name: Push to GitHub
       if: github.event.inputs.PUSH_GITHUB == 'true'
       run: |
-          git config --global user.email "kinguser981@gmail.com"
-          git config --global user.name "Samuel Kendall"
+          git config --global user.email "drqgithub@outlook.com"
+          git config --global user.name "drqbuddy"
           cd ./device/*/*/
           git init
           git add *
